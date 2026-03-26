@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CXDR</class>
+ <widget class="QFrame" name="CXDR">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>70</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Transducer Type </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>118</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Measurement Data</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>166</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Unit of Measure</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>214</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Transducer ID</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="sp_TranMeasurement">
+   <property name="geometry">
+    <rect>
+     <x>274</x>
+     <y>111</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+   <property name="decimals">
+    <number>1</number>
+   </property>
+   <property name="maximum">
+    <double>1000.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cb_TranType">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>60</y>
+     <width>191</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>C</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>A</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>D</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>F</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>N</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>P</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>R</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>T</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>H</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>V</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>G</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>I</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>U</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>S</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>L</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="cb_Unit">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>164</y>
+     <width>191</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Air Temp</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Dew Point </string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Angular Displacement</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Linear Displacement </string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Frequency</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Flow Rate</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Air Pressure</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Tachometer</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Relative Humidity</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Volume</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Generic</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Current </string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Voltage</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Force</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Switch / Valve</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Salinity</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Visibility</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>117</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.0 - 1000.0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>239</x>
+     <y>360</y>
+     <width>100</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Restore</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="XDR_confirm">
+   <property name="geometry">
+    <rect>
+     <x>69</x>
+     <y>360</y>
+     <width>100</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Confirm</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="XDR_cancel">
+   <property name="geometry">
+    <rect>
+     <x>409</x>
+     <y>360</y>
+     <width>100</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cb_Tid">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>210</y>
+     <width>190</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QRadioButton" name="XDR_on">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>300</y>
+     <width>110</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ON</string>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">buttonGroup</string>
+   </attribute>
+  </widget>
+  <widget class="QRadioButton" name="XDR_off">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>300</y>
+     <width>110</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OFF</string>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">buttonGroup</string>
+   </attribute>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>
