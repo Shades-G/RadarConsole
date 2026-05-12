@@ -25,3 +25,12 @@ void SimulatedTarget::updatePosition(double secondPassed)
 
 void SimulatedTarget::setX(double newX){currentX = newX;}
 void SimulatedTarget::setY(double newY){currentY = newY;}
+
+void SimulatedTarget::setSpeed(double newSpeed)
+{
+    currentSpeedKnots = newSpeed;
+}
+void SimulatedTarget::setCourse(double newCourse)
+{
+    currentCourse = newCourse;
+}

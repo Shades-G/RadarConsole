@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>815</width>
+    <height>632</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,19 +17,130 @@
    <widget class="QGraphicsView" name="gv_Radar">
     <property name="geometry">
      <rect>
-      <x>-1</x>
-      <y>9</y>
-      <width>800</width>
-      <height>600</height>
+      <x>10</x>
+      <y>0</y>
+      <width>821</width>
+      <height>591</height>
      </rect>
     </property>
    </widget>
-   <widget class="QComboBox" name="scale_selector">
+   <widget class="QPushButton" name="DGPS">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>10</y>
-      <width>120</width>
+      <x>10</x>
+      <y>600</y>
+      <width>60</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>GPS</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LOG">
+    <property name="geometry">
+     <rect>
+      <x>79</x>
+      <y>601</y>
+      <width>60</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>LOG</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ECHO">
+    <property name="geometry">
+     <rect>
+      <x>147</x>
+      <y>602</y>
+      <width>60</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ECHO</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="AWOS">
+    <property name="geometry">
+     <rect>
+      <x>214</x>
+      <y>602</y>
+      <width>60</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>AWOS</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="COMMS">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>600</y>
+      <width>60</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>COMMS</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="cursorRange_le">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>13</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="cursorBearing_le">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>12</y>
+      <width>90</width>
+      <height>26</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>16</y>
+      <width>100</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mouse Range :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>17</y>
+      <width>110</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mouse Bearing :</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="scale_selector_cb">
+    <property name="geometry">
+     <rect>
+      <x>716</x>
+      <y>14</y>
+      <width>86</width>
       <height>26</height>
      </rect>
     </property>
@@ -58,11 +169,61 @@
       <string>48</string>
      </property>
     </item>
-    <item>
-     <property name="text">
-      <string>New Item</string>
+   </widget>
+   <widget class="QFrame" name="Config_Frame">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>510</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="TCP_config">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>94</width>
+       <height>26</height>
+      </rect>
      </property>
-    </item>
+     <property name="text">
+      <string>TCP Config</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="UDP_config">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>48</y>
+       <width>94</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>UDP Config</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>622</x>
+      <y>18</y>
+      <width>90</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Radar Scale:</string>
+    </property>
    </widget>
   </widget>
  </widget>

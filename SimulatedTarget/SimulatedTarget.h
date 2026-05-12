@@ -18,6 +18,8 @@ public:
     double getSpeed() const {return currentSpeedKnots;}
     void setY(double newY);
     void setX(double newX);
+    void setSpeed(double newSpeed);
+    void setCourse(double newCourse);
 
 private:
     QString tgtname;

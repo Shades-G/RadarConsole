@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Frame</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">    background-color: #2b2b2b;
+    border-radius: 5px;
+</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -46,7 +51,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Client </string>
+    <string>Port</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="Client_line">
@@ -69,7 +74,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Start</string>
+    <string>Connect</string>
    </property>
   </widget>
   <widget class="QPushButton" name="TCP_stop">
@@ -82,7 +87,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Stop</string>
+    <string>Disconnect</string>
    </property>
   </widget>
  </widget>

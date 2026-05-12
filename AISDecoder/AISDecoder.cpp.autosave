@@ -1,0 +1,64 @@
+#include "AISDecoder.h"
+
+AISData AISDecoder::decodeAIVDM(const QString &nmeaString){
+    AISData data;
+    
+    QStringList parts = nmeaString.split(',');
+    if(parts.size()<6||!parts[0].contains("AIVDM")){
+        return data;
+    }
+    
+    QString payload = parts[5];
+    
+    QString binaryStream = payloadToBinary(payload);
+    if(binaryStream.length()<168){
+        return data;
+    }
+    
+    int messageType = pareseBits(binaryStream,0,6);
+    if(messageType != 1 && messageType != 2 &&messageType != 3){
+        qDebug()<< "Unsupported AIS Message";
+        return data;
+    }
+    data.mmsi = parseBits(binaryStream,8,30);
+    data.speed = parseBits(binaryStream ,50 , 10 ) / 10.0;
+    
+    data.longitude = parseSignedCoordinate(binaryStream, 61, 28) / 600000.0;
+    data.latitude = parseSignedCoordinate(binaryStream, 89, 27) / 600000.0;
+    
+    data.course = parseBits(binaryStream, 116,12)/10.0;
+    data.isValid = true;
+    return data;
+}
+
+QString AISDecoder::payloadToBinary(const QString &payload){
+    QString binaryString = "";
+    for (QChar c : payload) {
+        int val = c.toLatin1() - 48;
+        if (val > 40) {
+            val -= 8;
+        }
+        binaryString += QString("%1").arg(val, 6, 2, QChar('0'));
+    }
+    return binaryString;
+}
+
+long AISDecoder::parseBits(const QString &binary, int start, int length)
+{   //base-
+    QString bits = binary.mid(start, length);
+    return bits.toLong(nullptr, 2);
+}
+
+double AISDecoder::parseSignedCoordinate(const QString &binary, int start, int length)
+{
+    QString bits = binary.mid(start, length);
+    long val = bits.toLong(nullptr, 2);
+    
+    // If the very first bit is a '1', the coordinate is negative
+    // apply Two's Complement math to reverse it.
+    if (bits[0] == '1') {
+        val = val - (1LL << length);
+    }
+    return val;
+}    
+}

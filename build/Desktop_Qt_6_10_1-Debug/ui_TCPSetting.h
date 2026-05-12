@@ -33,6 +33,9 @@ public:
         if (TCPSetting->objectName().isEmpty())
             TCPSetting->setObjectName("TCPSetting");
         TCPSetting->resize(600, 600);
+        TCPSetting->setStyleSheet(QString::fromUtf8("    background-color: #2b2b2b;\n"
+"    border-radius: 5px;\n"
+""));
         label = new QLabel(TCPSetting);
         label->setObjectName("label");
         label->setGeometry(QRect(120, 80, 66, 18));
@@ -61,9 +64,9 @@ public:
     {
         TCPSetting->setWindowTitle(QCoreApplication::translate("TCPSetting", "Frame", nullptr));
         label->setText(QCoreApplication::translate("TCPSetting", "Server", nullptr));
-        label_2->setText(QCoreApplication::translate("TCPSetting", "Client ", nullptr));
-        TCP_start->setText(QCoreApplication::translate("TCPSetting", "Start", nullptr));
-        TCP_stop->setText(QCoreApplication::translate("TCPSetting", "Stop", nullptr));
+        label_2->setText(QCoreApplication::translate("TCPSetting", "Port", nullptr));
+        TCP_start->setText(QCoreApplication::translate("TCPSetting", "Connect", nullptr));
+        TCP_stop->setText(QCoreApplication::translate("TCPSetting", "Disconnect", nullptr));
     } // retranslateUi
 
 };

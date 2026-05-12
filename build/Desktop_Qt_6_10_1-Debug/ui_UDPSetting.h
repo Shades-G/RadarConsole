@@ -38,6 +38,9 @@ public:
         if (UDPSetting->objectName().isEmpty())
             UDPSetting->setObjectName("UDPSetting");
         UDPSetting->resize(600, 600);
+        UDPSetting->setStyleSheet(QString::fromUtf8("    background-color: #2b2b2b;\n"
+"    border-radius: 5px;\n"
+""));
         Sender_line = new QLineEdit(UDPSetting);
         Sender_line->setObjectName("Sender_line");
         Sender_line->setGeometry(QRect(292, 140, 140, 26));
@@ -77,10 +80,10 @@ public:
     void retranslateUi(QFrame *UDPSetting)
     {
         UDPSetting->setWindowTitle(QCoreApplication::translate("UDPSetting", "Frame", nullptr));
-        label->setText(QCoreApplication::translate("UDPSetting", "Sender's Port", nullptr));
-        label_2->setText(QCoreApplication::translate("UDPSetting", "Receiver's Port", nullptr));
-        UDP_start->setText(QCoreApplication::translate("UDPSetting", "Start", nullptr));
-        UDP_stop->setText(QCoreApplication::translate("UDPSetting", "Stop", nullptr));
+        label->setText(QCoreApplication::translate("UDPSetting", "Sender Port", nullptr));
+        label_2->setText(QCoreApplication::translate("UDPSetting", "Receiver Port", nullptr));
+        UDP_start->setText(QCoreApplication::translate("UDPSetting", "Connect", nullptr));
+        UDP_stop->setText(QCoreApplication::translate("UDPSetting", "Disconnect", nullptr));
         unicast->setText(QCoreApplication::translate("UDPSetting", "Uni-Cast", nullptr));
         broadcast->setText(QCoreApplication::translate("UDPSetting", "BroadCast", nullptr));
         label_3->setText(QCoreApplication::translate("UDPSetting", "Destination IP", nullptr));

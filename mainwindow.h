@@ -4,33 +4,44 @@
 #include <QMainWindow>
 #include "UDPSetting.h"
 #include "TCPSetting.h"
+#include <QPointer>
 #include <QDebug>
 #include <QMessageBox>
 #include <QString>
-#include "GPS/CRMCView.h"
-#include "GPS/GLL.h"
-#include "GPS/GGA.h"
-#include "GPS/ZDA.h"
 #include "SimulatedTarget/SimulatedTarget.h"
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsEllipseItem>
 #include <QList>
+#include <QLineEdit>
+#include <QDialog>
+#include <QLabel>
+#include <QSet>
+#include <QVBoxLayout>
 #include <QMap>
 #include <QTimer>
 #include <QEvent>
 #include <QGraphicsSceneMouseEvent>
+#include <QMap>
+#include <QDateTime>
 
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
-
-class CLOG;
-class CECHO;
-class CXDR;
-class CMWV;
-class CIBS;
-class CAIS;
+struct ShipTelemetry {
+    QString lat = "---";
+    QString lon = "---";
+    QString sog = "---";
+    QString cog = "---";
+    QString depth = "---";
+    QString windSpeed = "---";
+    QString windDir = "---";
+    QString waterSpeed = "---";
+    QString trueWind = "---";
+    QString relWind = "---";
+    QString airTemp = "---"; // Pre-loaded placeholder for demo
+    QString pressure = "---";
+    QString humidity = "---";
+    QString oceanCurrentDir = "---";
+    QString oceanCurrentSpeed = "---";
+};
 
 namespace Ui {
 class MainWindow;
@@ -44,46 +55,13 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void m_MemoryCreation();
-
     static QString calculateChecksum(QString answer);
 
-public slots:
-
 protected:
+    void resizeEvent(QResizeEvent *event) override;
     bool eventFilter(QObject *watched, QEvent *event);
 
 private slots:
-    void on_GPS_PB_clicked();
-
-    void on_LOG_PB_clicked();
-
-    void on_AWOS_PB_clicked();
-
-    void on_ECHO_PB_clicked();
-
-    void on_RMC_PB_clicked();
-
-    void on_GLL_PB_clicked();
-
-    void on_GGA_PB_clicked();
-
-    void on_ZDA_PB_clicked();
-
-    void on_MWV_PB_clicked();
-
-    void on_XDR_PB_clicked();
-
-    void on_COMMS_PB_clicked();
-
-    void on_UDP_PB_clicked();
-
-    void on_TCP_PB_clicked();
-
-    void on_IBS_PB_clicked();
-
-    void on_AIS_PB_clicked();
-
     void onMasterClock();
 
     void onSweeperTimer();
@@ -92,13 +70,25 @@ private slots:
 
     void runProximitySweep();
 
-    void on_scale_selector_currentTextChanged(const QString &arg1);
+    void on_scale_selector_cb_currentTextChanged(const QString &arg1);
 
     void processIncomingAIS(const QString &sentence);
 
     void processIncomingTTM(QString nmeaString);
 
     void processIncomingNMEA(const QString &sentence);
+    
+    void handleGPSClick();
+    void handleLOGClick();
+    void handleECHOClick();
+    void handleAWOSClick();
+    void handleWINDClick();
+    void updateTelemetryDisplay();
+    void on_COMMS_clicked();
+    void on_TCP_config_clicked();
+    void on_UDP_config_clicked();
+
+    void on_AWOS_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -113,6 +103,7 @@ private:
     QTimer *sweepTimer;
     QGraphicsLineItem *sweeper;
     double currentAngle;
+    QGraphicsEllipseItem *dangerCircle;
 
     QString aisToBinary(const QString &answer);
     int binaryToSignInt(const QString &binaryStr);
@@ -121,24 +112,23 @@ private:
     QTimer *alarmTimer;
     bool isBlinkVisible;
     double dangerZoneNM;
-
-    QSqlDatabase vdrDatabase;
-    void setupDatabase();
-    void logTargetToDB(const QString& tgt_id, double lat , double lon , double speed, const QString& sourceType);
-
-    CIBS *objIBS;
-    CAIS *objAIS;
-    CLOG *objLOG;
-    CECHO *objECHO;
-    GLL *objGLL;
-    GGA *objGGA;
-    ZDA *objZDA;
-    CXDR *objXDR;
-    CMWV *objMWV;
-    CRMCView *objCRMCView;
+    QDialog *alertBox;
+    QLabel *alertBoxLabel;
+    QSet<SimulatedTarget*> alertedShips;
 
     UDPSetting *udpWindow;
     TCPSetting *tcpWindow;
+    QLineEdit *cursorBearing_le;
+    QLineEdit *cursorRange_le;
+    ShipTelemetry currentTelemetry;
+    
+    QFrame *telemetryFrame;
+    QLabel *telemetryLabel;
+    QString currentActiveModule;
+
+    QMap<QString, qint64> targetLastSeen;
+    QGraphicsTextItem* targetDataBox = nullptr;
+    SimulatedTarget* selectedShip = nullptr;
 };
 
 #endif // MAINWINDOW_H

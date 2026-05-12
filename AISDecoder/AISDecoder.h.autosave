@@ -1,0 +1,15 @@
+#ifndef AISDECODER_H
+#define AISDECODER_H
+
+#include <QString>
+#include <QDebug>
+
+struct AISDa
+
+class AISDecoder
+{
+public:
+    AISDecoder();
+};
+
+#endif // AISDECODER_H

@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../mainwindow.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -39,90 +40,75 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "MainWindow",
-        "on_GPS_PB_clicked",
-        "",
-        "on_LOG_PB_clicked",
-        "on_AWOS_PB_clicked",
-        "on_ECHO_PB_clicked",
-        "on_RMC_PB_clicked",
-        "on_GLL_PB_clicked",
-        "on_GGA_PB_clicked",
-        "on_ZDA_PB_clicked",
-        "on_MWV_PB_clicked",
-        "on_XDR_PB_clicked",
-        "on_COMMS_PB_clicked",
-        "on_UDP_PB_clicked",
-        "on_TCP_PB_clicked",
-        "on_IBS_PB_clicked",
-        "on_AIS_PB_clicked",
         "onMasterClock",
+        "",
         "onSweeperTimer",
         "redrawAllTgt",
         "runProximitySweep",
-        "on_scale_selector_currentTextChanged",
+        "on_scale_selector_cb_currentTextChanged",
         "arg1",
         "processIncomingAIS",
         "sentence",
         "processIncomingTTM",
         "nmeaString",
-        "processIncomingNMEA"
+        "processIncomingNMEA",
+        "handleGPSClick",
+        "handleLOGClick",
+        "handleECHOClick",
+        "handleAWOSClick",
+        "handleWINDClick",
+        "updateTelemetryDisplay",
+        "on_COMMS_clicked",
+        "on_TCP_config_clicked",
+        "on_UDP_config_clicked",
+        "on_AWOS_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'on_GPS_PB_clicked'
-        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_LOG_PB_clicked'
-        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_AWOS_PB_clicked'
-        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_ECHO_PB_clicked'
-        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_RMC_PB_clicked'
-        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_GLL_PB_clicked'
-        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_GGA_PB_clicked'
-        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_ZDA_PB_clicked'
-        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_MWV_PB_clicked'
-        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_XDR_PB_clicked'
-        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_COMMS_PB_clicked'
-        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_UDP_PB_clicked'
-        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_TCP_PB_clicked'
-        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_IBS_PB_clicked'
-        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_AIS_PB_clicked'
-        QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onMasterClock'
-        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onSweeperTimer'
-        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'redrawAllTgt'
-        QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'runProximitySweep'
-        QtMocHelpers::SlotData<void()>(20, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_scale_selector_currentTextChanged'
-        QtMocHelpers::SlotData<void(const QString &)>(21, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 22 },
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_scale_selector_cb_currentTextChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 7 },
         }}),
         // Slot 'processIncomingAIS'
-        QtMocHelpers::SlotData<void(const QString &)>(23, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 24 },
+        QtMocHelpers::SlotData<void(const QString &)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 9 },
         }}),
         // Slot 'processIncomingTTM'
-        QtMocHelpers::SlotData<void(QString)>(25, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 26 },
+        QtMocHelpers::SlotData<void(QString)>(10, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 11 },
         }}),
         // Slot 'processIncomingNMEA'
-        QtMocHelpers::SlotData<void(const QString &)>(27, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 24 },
+        QtMocHelpers::SlotData<void(const QString &)>(12, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 9 },
         }}),
+        // Slot 'handleGPSClick'
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleLOGClick'
+        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleECHOClick'
+        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleAWOSClick'
+        QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleWINDClick'
+        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'updateTelemetryDisplay'
+        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_COMMS_clicked'
+        QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_TCP_config_clicked'
+        QtMocHelpers::SlotData<void()>(20, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_UDP_config_clicked'
+        QtMocHelpers::SlotData<void()>(21, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_AWOS_clicked'
+        QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -146,29 +132,24 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     auto *_t = static_cast<MainWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->on_GPS_PB_clicked(); break;
-        case 1: _t->on_LOG_PB_clicked(); break;
-        case 2: _t->on_AWOS_PB_clicked(); break;
-        case 3: _t->on_ECHO_PB_clicked(); break;
-        case 4: _t->on_RMC_PB_clicked(); break;
-        case 5: _t->on_GLL_PB_clicked(); break;
-        case 6: _t->on_GGA_PB_clicked(); break;
-        case 7: _t->on_ZDA_PB_clicked(); break;
-        case 8: _t->on_MWV_PB_clicked(); break;
-        case 9: _t->on_XDR_PB_clicked(); break;
-        case 10: _t->on_COMMS_PB_clicked(); break;
-        case 11: _t->on_UDP_PB_clicked(); break;
-        case 12: _t->on_TCP_PB_clicked(); break;
-        case 13: _t->on_IBS_PB_clicked(); break;
-        case 14: _t->on_AIS_PB_clicked(); break;
-        case 15: _t->onMasterClock(); break;
-        case 16: _t->onSweeperTimer(); break;
-        case 17: _t->redrawAllTgt(); break;
-        case 18: _t->runProximitySweep(); break;
-        case 19: _t->on_scale_selector_currentTextChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 20: _t->processIncomingAIS((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 21: _t->processIncomingTTM((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 22: _t->processIncomingNMEA((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 0: _t->onMasterClock(); break;
+        case 1: _t->onSweeperTimer(); break;
+        case 2: _t->redrawAllTgt(); break;
+        case 3: _t->runProximitySweep(); break;
+        case 4: _t->on_scale_selector_cb_currentTextChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->processIncomingAIS((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 6: _t->processIncomingTTM((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 7: _t->processIncomingNMEA((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 8: _t->handleGPSClick(); break;
+        case 9: _t->handleLOGClick(); break;
+        case 10: _t->handleECHOClick(); break;
+        case 11: _t->handleAWOSClick(); break;
+        case 12: _t->handleWINDClick(); break;
+        case 13: _t->updateTelemetryDisplay(); break;
+        case 14: _t->on_COMMS_clicked(); break;
+        case 15: _t->on_TCP_config_clicked(); break;
+        case 16: _t->on_UDP_config_clicked(); break;
+        case 17: _t->on_AWOS_clicked(); break;
         default: ;
         }
     }
@@ -193,14 +174,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 18;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 18)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 23;
+        _id -= 18;
     }
     return _id;
 }

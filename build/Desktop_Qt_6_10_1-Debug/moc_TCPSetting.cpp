@@ -49,7 +49,8 @@ template <> constexpr inline auto TCPSetting::qt_create_metaobjectdata<qt_meta_t
         "onSocketStateChanged",
         "QAbstractSocket::SocketState",
         "socketState",
-        "onReadyRead"
+        "onReadyRead",
+        "onNewConnection"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -71,6 +72,8 @@ template <> constexpr inline auto TCPSetting::qt_create_metaobjectdata<qt_meta_t
         }}),
         // Slot 'onReadyRead'
         QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onNewConnection'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -100,6 +103,7 @@ void TCPSetting::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 3: _t->on_TCP_stop_clicked(); break;
         case 4: _t->onSocketStateChanged((*reinterpret_cast<std::add_pointer_t<QAbstractSocket::SocketState>>(_a[1]))); break;
         case 5: _t->onReadyRead(); break;
+        case 6: _t->onNewConnection(); break;
         default: ;
         }
     }
@@ -140,14 +144,14 @@ int TCPSetting::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }
